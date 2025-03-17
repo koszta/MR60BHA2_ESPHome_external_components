@@ -136,9 +136,6 @@ void MR60BHA2Component::process_frame_(uint16_t frame_id, uint16_t frame_type, c
         if (current_breath_rate_int != 0) {
           float breath_rate_float;
           memcpy(&breath_rate_float, &current_breath_rate_int, sizeof(float));
-          if (this->breath_rate_sensor_->state == breath_rate_float) {
-            break;
-          }
           this->breath_rate_sensor_->publish_state(breath_rate_float);
         }
       }
@@ -146,21 +143,18 @@ void MR60BHA2Component::process_frame_(uint16_t frame_id, uint16_t frame_type, c
     case PEOPLE_EXIST_TYPE_BUFFER:
       if (this->has_target_binary_sensor_ != nullptr && length >= 2) {
         uint16_t has_target_int = encode_uint16(data[1], data[0]);
-        if (this->has_target_binary_sensor_->state == has_target_int) {
-          break;
-        }
         this->has_target_binary_sensor_->publish_state(has_target_int);
         if (has_target_int == 0) {
-          if (this->breath_rate_sensor_ != nullptr && this->breath_rate_sensor_->state != 0.0) {
+          if (this->breath_rate_sensor_ != nullptr) {
             this->breath_rate_sensor_->publish_state(0.0);
           }
-          if (this->heart_rate_sensor_ != nullptr && this->heart_rate_sensor_->state != 0.0) {
+          if (this->heart_rate_sensor_ != nullptr) {
             this->heart_rate_sensor_->publish_state(0.0);
           }
-          if (this->distance_sensor_ != nullptr && this->distance_sensor_->state != 0.0) {
+          if (this->distance_sensor_ != nullptr) {
             this->distance_sensor_->publish_state(0.0);
           }
-          if (this->num_targets_sensor_ != nullptr && this->num_targets_sensor_->state != 0) {
+          if (this->num_targets_sensor_ != nullptr) {
             this->num_targets_sensor_->publish_state(0);
           }
         }
@@ -172,9 +166,6 @@ void MR60BHA2Component::process_frame_(uint16_t frame_id, uint16_t frame_type, c
         if (current_heart_rate_int != 0) {
           float heart_rate_float;
           memcpy(&heart_rate_float, &current_heart_rate_int, sizeof(float));
-          if (this->heart_rate_sensor_->state == heart_rate_float) {
-            break;
-          }
           this->heart_rate_sensor_->publish_state(heart_rate_float);
         }
       }
@@ -185,9 +176,6 @@ void MR60BHA2Component::process_frame_(uint16_t frame_id, uint16_t frame_type, c
           uint32_t current_distance_int = encode_uint32(data[7], data[6], data[5], data[4]);
           float distance_float;
           memcpy(&distance_float, &current_distance_int, sizeof(float));
-          if (this->distance_sensor_->state == distance_float) {
-            break;
-          }
           this->distance_sensor_->publish_state(distance_float);
         }
       }
@@ -195,9 +183,6 @@ void MR60BHA2Component::process_frame_(uint16_t frame_id, uint16_t frame_type, c
     case PRINT_CLOUD_BUFFER:
       if (this->num_targets_sensor_ != nullptr && length >= 4) {
         uint32_t current_num_targets_int = encode_uint32(data[3], data[2], data[1], data[0]);
-        if (this->num_targets_sensor_->state == current_num_targets_int) {
-          break;
-        }
         this->num_targets_sensor_->publish_state(current_num_targets_int);
       }
       break;
