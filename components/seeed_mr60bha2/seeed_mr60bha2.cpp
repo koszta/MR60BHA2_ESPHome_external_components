@@ -144,20 +144,6 @@ void MR60BHA2Component::process_frame_(uint16_t frame_id, uint16_t frame_type, c
       if (this->has_target_binary_sensor_ != nullptr && length >= 2) {
         uint16_t has_target_int = encode_uint16(data[1], data[0]);
         this->has_target_binary_sensor_->publish_state(has_target_int);
-        if (has_target_int == 0) {
-          if (this->breath_rate_sensor_ != nullptr) {
-            this->breath_rate_sensor_->publish_state(0.0);
-          }
-          if (this->heart_rate_sensor_ != nullptr) {
-            this->heart_rate_sensor_->publish_state(0.0);
-          }
-          if (this->distance_sensor_ != nullptr) {
-            this->distance_sensor_->publish_state(0.0);
-          }
-          if (this->num_targets_sensor_ != nullptr) {
-            this->num_targets_sensor_->publish_state(0);
-          }
-        }
       }
       break;
     case HEART_RATE_TYPE_BUFFER:
