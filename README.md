@@ -285,13 +285,29 @@ To get started with ESPHome, follow these steps:
       name: "Seeed MR60BHA2 Illuminance"
       address: 0x23
       update_interval: 1s
+      filters:
+        - delta: 0.1
     - platform: seeed_mr60bha2
       breath_rate:
         name: "Real-time respiratory rate"
+        filters:
+          - timeout: 60s
+          - delta: 0.01
       heart_rate:
         name: "Real-time heart rate"
+        filters:
+          - timeout: 60s
+          - delta: 0.01
       distance:
         name: "Distance to detection object"
+        filters:
+          - timeout: 60s
+          - delta: 0.01
+      num_targets:
+        name: "Target Number"
+        filters:
+          - timeout: 60s
+          - delta: 0.01
   ```
 
 3. **Customize Functionality**: You can enhance the sensor's capabilities by exploring various features available in ESPHome, allowing for flexible adjustments to suit your specific needs.
