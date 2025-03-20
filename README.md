@@ -259,7 +259,6 @@ To get started with ESPHome, follow these steps:
       name: "Seeed MR60BHA2 RGB Light"
       pin: GPIO1
       num_leds: 1
-      rmt_channel: 0
       rgb_order: GRB
       chipset: ws2812
 
