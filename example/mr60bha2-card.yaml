@@ -25,4 +25,8 @@ views:
             entity: sensor.seeed_mr60bha2_seeed_mr60bha2_illuminance
             name: Seeed MR60BHA2 Illuminance
             color: accent
+          - type: tile
+            entity: button.seeedstudio_mr60bha2_kit_64db24_reset_radar
+          - type: tile
+            entity: button.seeedstudio_mr60bha2_kit_64db24_restart
         title: Seeed_MR60BHA2

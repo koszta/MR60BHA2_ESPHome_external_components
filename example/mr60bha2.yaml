@@ -112,3 +112,17 @@ sensor:
       filters:
         - timeout: 60s
         - delta: 0.01
+
+output:
+  - platform: gpio
+    pin: GPIO21
+    inverted: True
+    id: reset
+
+button:
+  - platform: restart
+    name: "Restart"
+  - platform: output
+    name: "Reset radar"
+    output: reset
+    duration: 50ms

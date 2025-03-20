@@ -308,6 +308,20 @@ To get started with ESPHome, follow these steps:
         filters:
           - timeout: 60s
           - delta: 0.01
+
+  output:
+    - platform: gpio
+      pin: GPIO21
+      inverted: True
+      id: reset
+
+  button:
+    - platform: restart
+      name: "Restart"
+    - platform: output
+      name: "Reset radar"
+      output: reset
+      duration: 50ms
   ```
 
 3. **Customize Functionality**: You can enhance the sensor's capabilities by exploring various features available in ESPHome, allowing for flexible adjustments to suit your specific needs.
