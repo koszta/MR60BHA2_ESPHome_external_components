@@ -23,7 +23,7 @@ esp32:
 external_components:
   - source:
       type: git
-      url: https://github.com/limengdu/MR60BHA2_ESPHome_external_components
+      url: https://github.com/koszta/MR60BHA2_ESPHome_external_components
       ref: main
     components: [ seeed_mr60bha2 ]
     refresh: 0s
