@@ -280,6 +280,11 @@ To get started with ESPHome, follow these steps:
   seeed_mr60bha2:
     id: my_seeed_mr60bha2
 
+  binary_sensor:
+    - platform: seeed_mr60bha2
+      has_target:
+        name: "Person Information"
+
   sensor:
     - platform: bh1750
       name: "Seeed MR60BHA2 Illuminance"
