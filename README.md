@@ -139,7 +139,7 @@ In this section, we'll go through the process using the Home Assistant app, wher
     <img src="https://files.seeedstudio.com/wiki/mmwave-for-xiao/mr60/mr60bha2/ha-device-add.JPG" alt="area"/>
     <img src="https://files.seeedstudio.com/wiki/mmwave-for-xiao/mr60/mr60bha2/ha-addon-device.JPG" alt="addon"/>
   </div>
-  
+
   Click the `CONFIGURE` button, confirm by pressing the `SUBMIT` button, and assign the device to your preferred area (e.g., Bedroom). After this, the device will be managed through your ESPHome integration, enabling full control and monitoring in Home Assistant.
 
 ## Monitoring and Control
@@ -339,4 +339,3 @@ Through these steps, you can maximize the functionality of your MR60BHA2 mmWave 
 - [ESPHome — ESPHome](https://esphome.io/)
 - [Installation - Home Assistant](https://www.home-assistant.io/installation/)
 - [limengdu/MR60BHA2_ESPHome_external_components](https://github.com/limengdu/MR60BHA2_ESPHome_external_components)
-
