@@ -310,7 +310,6 @@ To get started with ESPHome, follow these steps:
       num_targets:
         name: "Target Number"
         filters:
-          - timeout: 60s
           - delta: 0.01
 
   output:
